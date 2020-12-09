@@ -1,0 +1,6 @@
+.box-texto{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 8px;
+    width: 100%;
+}

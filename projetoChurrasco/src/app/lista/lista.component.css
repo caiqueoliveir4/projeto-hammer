@@ -1,0 +1,12 @@
+.tabela {
+    width: 100%;
+    overflow: auto;
+}
+
+.container{
+    min-height: 300px;
+}
+
+table, tr{
+    text-align: left;
+}

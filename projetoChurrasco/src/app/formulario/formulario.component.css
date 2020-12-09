@@ -1,0 +1,9 @@
+.formulario{
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+}
+
+.formulario, div{
+    padding-bottom: 8px;
+}
