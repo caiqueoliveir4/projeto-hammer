@@ -1,6 +1,9 @@
 .box-texto{
     display: flex;
     justify-content: space-between;
-    padding-bottom: 8px;
     width: 100%;
+}
+
+.jumbotron{
+    padding: 1rem 0rem;
 }

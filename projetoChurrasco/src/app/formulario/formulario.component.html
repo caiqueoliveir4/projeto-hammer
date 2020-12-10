@@ -1,39 +1,101 @@
-<div class="container">
-    <form class="formulario">
-        <div>
-            <label for="nomePaticipante">Participante:</label><br>
-            <input type="text" name="Nome" id="nomePaticipante">
-        </div>
-        <div>
-            <label for="churrasco">Churrasco</label>
-            <input type="checkbox" name="churrasco" id="churrasco">
+
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+
+        <form class="formulario" (submit)="cadastrar()">
+    
+            <div>
+                <input 
+                    class="form-control" 
+                    type="text" 
+                    placeholder="Nome participante"
+                    (input)="dados.nomeParticipante = $event.target.value"
+                    [value]="dados.nomeParticipante">
+            </div>
+
+            <div class="form-check">
+                <input 
+                    class="form-check-input" 
+                    type="checkbox" 
+                    (input)="dados.churrasco = !dados.churrasco"
+                    [value]="dados.churrasco"
+                    [checked]="dados.churrasco"
+                    id="churrasco">
+                <label class="form-check-label" for="churrasco">
+                    Churrasco
+                </label>
+            </div>
+
+            <div class="form-check">
+                <input 
+                    class="form-check-input" 
+                    type="checkbox" 
+                    id="bebida" 
+                    (input)="dados.bebida = !dados.bebida"
+                    [value]="dados.bebida"
+                    [checked]="dados.bebida">
+                <label class="form-check-label" for="bebida">
+                    Bebida
+                </label>
+            </div>
+
+            <div class="custom-control custom-switch">
+                <input 
+                    type="checkbox" 
+                    class="custom-control-input" 
+                    id="customSwitches"
+                    (input)="dados.possuiConvidado = !dados.possuiConvidado"
+                    [value]="dados.possuiConvidado"
+                    [checked]="dados.possuiConvidado">
+                <label class="custom-control-label" for="customSwitches">Possui convidado</label>
+            </div>
+    
+
             
-            <label for="bebida">Bebida</label>
-            <input type="checkbox" name="bebida" id="bebida">
-        </div>
-
-
-            <div>
-                <input type="radio" name="convidado" id="convidadoRadio">
-                <label for="convidadoRadio">Convidado</label>
+    
+    
+            <div *ngIf="dados.possuiConvidado">
+                <div>
+                    <input 
+                        class="form-control" 
+                        type="text" 
+                        placeholder="Nome convidado"
+                        (input)="dados.convidado.nome = $event.target.value"
+                        [value]="dados.convidado.nome">
+                </div>
+        
+                <div class="form-check">
+                    <input 
+                        class="form-check-input" 
+                        type="checkbox" 
+                        (input)="dados.convidado.churrasco = !dados.convidado.churrasco"
+                        [value]="dados.convidado.churrasco"
+                        [checked]="dados.convidado.churrasco"
+                        id="churrascoConvidado">
+                    <label class="form-check-label" for="churrascoConvidado">
+                        Churrasco
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input 
+                        class="form-check-input" 
+                        type="checkbox" 
+                        (input)="dados.convidado.bebida = !dados.convidado.bebida"
+                        [value]="dados.convidado.bebida"
+                        [checked]="dados.convidado.bebida"
+                        checked
+                        id="bebidaConvidado">
+                    <label class="form-check-label" for="bebidaConvidado">
+                        Bebida
+                    </label>
+                </div>
             </div>
-            <div>
-                <label for="convidado">Convidado:</label><br>
-                <input type="text" name="convidado" id="convidado">
-
-            </div>
-            <div>
-                <label for="churrasco">Churrasco</label>
-                <input type="checkbox" name="churrasco" id="churrasco">
-                
-                <label for="bebida">Bebida</label>
-                <input type="checkbox" name="bebida" id="bebida">
-            </div>
-
+            
+    
             <button type="submit" class="btn btn-primary">
                 Cadastrar
             </button>
-        
-    </form>
-</div>  
-
+    
+        </form>
+    </div>
+</div>

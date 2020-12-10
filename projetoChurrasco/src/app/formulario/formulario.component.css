@@ -2,8 +2,14 @@
     display: flex;
     flex-direction: column;
     flex: 2;
+    color: white;
 }
 
 .formulario, div{
     padding-bottom: 8px;
+}
+
+.jumbotron{
+    background-color: #343a40;
+    padding: 1rem 0rem;
 }

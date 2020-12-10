@@ -1,12 +1,16 @@
 .tabela {
     width: 100%;
-    overflow: auto;
+    
 }
 
 .container{
-    min-height: 300px;
+    height: 300px;
+    overflow: auto;
+    padding-right: 0px;
+    padding-left: 0px;
+    
 }
 
 table, tr{
-    text-align: left;
+    padding: 1rem 0rem;
 }
