@@ -12,12 +12,17 @@ table, tr{
     padding: 1rem 0rem;
 }
 
+.teste{
+    flex: 5;
+
+}
+
 .container-lista{
     overflow: auto;
     padding-right: 0px;
     padding-left: 0px;
-    flex: 5;
     margin-top: 16px;
+    height: 370px;
 }
 
 /* formulario */

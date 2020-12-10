@@ -1,0 +1,164 @@
+
+<div class="container-principal">
+
+    <div class="container-formulario">  
+        <div>
+            <div class="jumbotron jumbotron-fluid ">
+        
+                <form class="formulario" (submit)="cadastrar()">
+            
+                    <div>
+                        <input 
+                            class="form-control" 
+                            type="text" 
+                            placeholder="Nome participante"
+                            name="nomeParticipante"
+                            [(ngModel)]="dados.nomeParticipante">
+                    </div>
+        
+                    <div class="form-check">
+                        <input 
+                            class="form-check-input" 
+                            type="checkbox" 
+                            id="bebidaParticipante" 
+                            [(ngModel)]="dados.bebida"
+                            name="bebidaParticipante">
+                        <label class="form-check-label" for="bebida">
+                            Inluso bebida
+                        </label>
+                    </div>
+        
+                    <div class="custom-control custom-switch">
+                        <input 
+                            type="checkbox" 
+                            class="custom-control-input" 
+                            id="customSwitches"
+                            [(ngModel)]="dados.possuiConvidado"
+                            name="possuiConvidado">
+                        <label class="custom-control-label" for="customSwitches">Possui convidado</label>
+                    </div>
+            
+            
+                    <div *ngIf="dados.possuiConvidado">
+                        <div>
+                            <input 
+                                class="form-control" 
+                                type="text" 
+                                placeholder="Nome convidado"
+                                [(ngModel)]="dados.convidado.nome"
+                                name="nomeConvidado">
+                        </div>
+                
+                        <div class="form-check">
+                            <input 
+                                class="form-check-input" 
+                                type="checkbox" 
+                                [(ngModel)]="dados.convidado.bebida"
+                                name="bebidaConvidado"
+                                checked
+                                id="bebidaConvidado">
+                            <label class="form-check-label" for="bebidaConvidado">
+                                Bebida
+                            </label>
+                        </div>
+                    </div>
+                    
+            
+                    <button type="submit" class="btn btn-primary" [disabled]="!dados.nomeParticipante" >
+                        Cadastrar
+                    </button>
+            
+                </form>
+    
+            </div>
+        </div>
+        
+    </div>
+    
+    <div class="teste">
+        <div class="container-lista">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Convidado</th>
+                        <th scope="col">Valor pago</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+        
+                    <tr *ngFor="let item of listaCompleta; let i = index">
+                        <th>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <span>
+                                        {{item.nomeParticipante}}]
+                                    </span><br>
+                                    <span *ngIf="item.convidado.bebida">
+                                        *Bebida incluso*
+                                    </span>
+                                </div>
+
+                                    
+                            </div>
+                        </th>
+                        <!-- <td>
+                            {{item.churrasco}}
+                        </td> -->
+                        <td>
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <span>{{item.convidado.nome}}</span><br>
+                                    <span *ngIf="item.convidado.bebida">
+                                        *Bebida incluso*
+                                    </span>
+                                </div>
+                                <div class="col-md-5" *ngIf="item.convidado.nome">
+                                    <button class="btn btn-danger" (click)="cancelarConvidado(i)">
+                                        Excluir convidado
+                                    </button>
+                                </div>
+                                    
+                            </div>
+                        </td>
+                        <td>
+                            R$ {{item.valor}}
+                        </td>
+                        <td>
+                            <button class="btn btn-danger" (click)="cancelarParticipacao(i)">
+                                Cancelar participante
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    
+         
+            </div>
+
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+            
+                    <div class="box-texto">
+                        <span>Total Comida</span>
+                        <span>R$ {{ totalValorComida }}</span>
+                    </div>
+                    <hr>
+                    <div class="box-texto">
+                        <span>Total bebida</span>
+                        <span>R$ {{ totalValorBebida }}</span>
+                    </div> 
+                    <hr>
+                    <div class="box-texto">
+                        <span>Total arrecadado</span>
+                        <span>R$ {{ totalValorArrecadado }}</span>
+            
+                    </div>
+                </div>
+        </div>
+       
+        
+    </div>
+
+</div>
