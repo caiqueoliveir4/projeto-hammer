@@ -9,7 +9,6 @@
                     class="form-control" 
                     type="text" 
                     placeholder="Nome participante"
-                    (input)="dados.nomeParticipante = $event.target.value"
                     [value]="dados.nomeParticipante">
             </div>
 
@@ -50,9 +49,6 @@
                 <label class="custom-control-label" for="customSwitches">Possui convidado</label>
             </div>
     
-
-            
-    
     
             <div *ngIf="dados.possuiConvidado">
                 <div>
@@ -60,7 +56,6 @@
                         class="form-control" 
                         type="text" 
                         placeholder="Nome convidado"
-                        (input)="dados.convidado.nome = $event.target.value"
                         [value]="dados.convidado.nome">
                 </div>
         

@@ -1,40 +1,167 @@
-<div class="container">
-    <table class="table">
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col">Nome</th>
-                <th scope="col">Churrasco</th>
-                <th scope="col">Bebida</th>
-                <th scope="col">Convidado</th>
-                <th scope="col">Valor pago</th>
-                <th scope="col"></th>
-            </tr>
-        </thead>
-        <tbody>
 
-            <tr *ngFor="let item of listaCompleta">
-                <th scope="row">
-                    {{item.nome}}
-                </th>
-                <td>
-                    {{item.churrasco}}
-                </td>
-                <td>
-                    {{item.bebida}}
-                </td>
-                <td>
-                    {{item.possuiAcompanhante}}
-                </td>
-                <td>
-                    {{item.valor}}
-                </td>
-                <td>
-                    <button class="btn btn-danger">
-                        Cancelar
+<div class="container-principal">
+
+    <div class="container-formulario">  
+        <div>
+            <div class="jumbotron jumbotron-fluid ">
+        
+                <form class="formulario" (submit)="cadastrar()">
+            
+                    <div>
+                        <input 
+                            class="form-control" 
+                            type="text" 
+                            placeholder="Nome participante"
+                            [value]="dados.nomeParticipante">
+                    </div>
+        
+                    <div class="form-check">
+                        <input 
+                            class="form-check-input" 
+                            type="checkbox" 
+                            (input)="dados.churrasco = !dados.churrasco"
+                            [value]="dados.churrasco"
+                            [checked]="dados.churrasco"
+                            id="churrasco">
+                        <label class="form-check-label" for="churrasco">
+                            Churrasco
+                        </label>
+                    </div>
+        
+                    <div class="form-check">
+                        <input 
+                            class="form-check-input" 
+                            type="checkbox" 
+                            id="bebida" 
+                            (input)="dados.bebida = !dados.bebida"
+                            [value]="dados.bebida"
+                            [checked]="dados.bebida">
+                        <label class="form-check-label" for="bebida">
+                            Bebida
+                        </label>
+                    </div>
+        
+                    <div class="custom-control custom-switch">
+                        <input 
+                            type="checkbox" 
+                            class="custom-control-input" 
+                            id="customSwitches"
+                            (input)="dados.possuiConvidado = !dados.possuiConvidado"
+                            [value]="dados.possuiConvidado"
+                            [checked]="dados.possuiConvidado">
+                        <label class="custom-control-label" for="customSwitches">Possui convidado</label>
+                    </div>
+            
+            
+                    <div *ngIf="dados.possuiConvidado">
+                        <div>
+                            <input 
+                                class="form-control" 
+                                type="text" 
+                                placeholder="Nome convidado"
+                                [value]="dados.convidado.nome">
+                        </div>
+                
+                        <div class="form-check">
+                            <input 
+                                class="form-check-input" 
+                                type="checkbox" 
+                                (input)="dados.convidado.churrasco = !dados.convidado.churrasco"
+                                [value]="dados.convidado.churrasco"
+                                [checked]="dados.convidado.churrasco"
+                                id="churrascoConvidado">
+                            <label class="form-check-label" for="churrascoConvidado">
+                                Churrasco
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input 
+                                class="form-check-input" 
+                                type="checkbox" 
+                                (input)="dados.convidado.bebida = !dados.convidado.bebida"
+                                [value]="dados.convidado.bebida"
+                                [checked]="dados.convidado.bebida"
+                                checked
+                                id="bebidaConvidado">
+                            <label class="form-check-label" for="bebidaConvidado">
+                                Bebida
+                            </label>
+                        </div>
+                    </div>
+                    
+            
+                    <button type="submit" class="btn btn-primary">
+                        Cadastrar
                     </button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+            
+                </form>
+    
+            </div>
+        </div>
+        
+    </div>
+    
+    <div class="container-lista">
+        
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Churrasco</th>
+                    <th scope="col">Bebida</th>
+                    <th scope="col">Convidado</th>
+                    <th scope="col">Valor pago</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+    
+                <tr *ngFor="let item of listaCompleta">
+                    <th scope="row">
+                        {{item.nome}}
+                    </th>
+                    <td>
+                        {{item.churrasco}}
+                    </td>
+                    <td>
+                        {{item.bebida}}
+                    </td>
+                    <td>
+                        {{item.possuiAcompanhante}}
+                    </td>
+                    <td>
+                        {{item.valor}}
+                    </td>
+                    <td>
+                        <button class="btn btn-danger">
+                            Cancelar
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+        
+                <div class="box-texto">
+                    <span>Total Comida</span>
+                    <span>R$250</span>
+                </div>
+                <hr>
+                <div class="box-texto">
+                    <span>Total bebida</span>
+                    <span>R$250</span>
+                </div> 
+                <hr>
+                <div class="box-texto">
+                    <span>Total arrecadado</span>
+                    <span>R$250</span>
+        
+                </div>
+            </div>
+        </div>
+        
+    </div>
 
 </div>

@@ -44,4 +44,20 @@ export class ListaComponent implements OnInit {
 
     }
 
+    cadastrar(): void {
+        console.log("Dados", this.dados);
+    }
+
+    dados = {
+        nomeParticipante: "",
+        churrasco: false,
+        bebida:  false,
+        possuiConvidado: false,
+        convidado: {
+            nome: "",
+            churrasco: false,
+            bebida: false
+        }
+    };
+
 }

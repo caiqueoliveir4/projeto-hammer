@@ -1,16 +1,61 @@
-.tabela {
-    width: 100%;
-    
+.container-principal{
+    display: flex;
+    margin-right: 20px;
 }
 
-.container{
-    height: 300px;
-    overflow: auto;
-    padding-right: 0px;
-    padding-left: 0px;
-    
+/* tabela */
+.tabela {
+    width: 100%;
 }
 
 table, tr{
     padding: 1rem 0rem;
+}
+
+.container-lista{
+    overflow: auto;
+    padding-right: 0px;
+    padding-left: 0px;
+    flex: 5;
+    margin-top: 16px;
+}
+
+/* formulario */
+.container-formulario{
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    padding: 16px;
+}
+
+.jumbotron{
+    background-color: #343a40;
+    padding: 1rem 0rem;
+    width: 270px;
+}
+
+.formulario{
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+    padding: 32px;
+    color: white;
+}
+
+.formulario, div{
+    padding-bottom: 8px;
+}
+
+
+.box-texto{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    color: white;
+
+}
+
+.jumbotron{
+    padding: 1rem 0rem;
+    width: 100%;
 }
